@@ -2,6 +2,9 @@ package com.mohamedsctraore.countrieslist.domain;
 
 import lombok.*;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -14,6 +17,8 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Country {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotNull @Size(max = 3, min = 3)
     private String code;
     @NotNull @Size(max = 52)
